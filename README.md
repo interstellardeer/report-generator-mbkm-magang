@@ -1,4 +1,4 @@
-# Pen-generate Laporan MBKM Terintegrasi AI
+# Generate Laporan MBKM menggunakan LLM
 
 Repositori ini menyediakan sistem bagi mahasiswa untuk mengekstrak data dari dokumen magang menjadi laporan MBKM (berformat `.docx`) secara otomatis dengan bantuan kecerdasan buatan (AI). 
 
