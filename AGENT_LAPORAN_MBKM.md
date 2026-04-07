@@ -298,9 +298,9 @@ nip_kaprodi             sama seperti di atas
 
 ## Format Output Agent
 
-Setelah memproses dokumen, hasilkan dua blok secara berurutan.
+Setelah memproses dokumen, hasilkan minimal dua blok hasil secara berurutan (atau lakukan orkestrasi otomatis jika memiliki kapabilitas Terminal). **PENTING: Selalu hasilkan output kode `CONFIG` (Blok 1) dalam bentuk *Artifact* file teks ataupun markdown atau langsung modifikasi file `.js`-nya tanpa mencetak mentah-mentah blok kode tersebut ke layar pesan, untuk menghemat output token.**
 
-### Blok 1 — CONFIG Terisi (siap di-paste)
+### Blok 1 — CONFIG Terisi (Hasilkan sebagai Artifact / Tulis File Langsung)
 
 Sertakan komentar singkat di setiap field yang menunjukkan sumber data atau status pengisian:
 
@@ -392,6 +392,14 @@ KONFLIK DATA (perlu keputusan manual):
     absensi berakhir di "25 Jun" — nilai SK digunakan, konfirmasi jika perlu
 ══════════════════════════════════════════
 ```
+
+### Blok 3 — Orkestrasi Eksekusi (Khusus Agent CLI/IDE)
+
+Jika kamu (Agent) memiliki kapabilitas untuk memodifikasi file dan menjalankan perintah terminal (misal: Claude Code, Antigravity, Cursor, Copilot), lakukan runtun kerja berikut ini secara otonom alih-alih menyuruh mahasiswa melakukan *copy-paste* mandiri:
+
+1. Modifikasi langsung (*replace*) blok variabel `CONFIG` di dalam skrip `.js` milik pengguna dengan data JSON baru hasil ekstraksimu.
+2. Buka terminal secara mandiri, lalu jalankan perintah eksekusi (seperti `node generate_laporan_mbkm.js`) untuk menghasilkan dokumennya.
+3. Informasikan kepada pengguna bahwa file laporan `.docx` telah berhasil dibuat (ter-generate di *workspace* mereka) dan ingatkan bagian mana saja yang perlu diisi ulang secara manual.
 
 ---
 
