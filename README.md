@@ -23,13 +23,16 @@ Metode ini adalah cara paling sederhana jika Anda tidak menggunakan aplikasi *co
 4. Di pesan selanjutnya, **lampirkan (upload) berkas `.js` generator (contoh: `generate_laporan_mbkm.js` atau `generate_laporan_mbkm_claude.js`)** agar AI memahami bentuk asli konsistensi laporannya, lalu lampirkan juga dokumen magang Anda (SK, logbook, absensi).
 5. LLM akan membaca dokumen-dokumen tersebut, memilah data yang bersifat publik/rahasia, dan membalas dengan struktur kode variabel bernama `CONFIG`.
 
-### Metode 2: Menggunakan AI Agent Tools / IDE (Claude Code, Antigravity, GitHub Copilot, Cursor)
-Metode ini digunakan jika Anda bekerja menggunakan IDE (seperti Cursor/Copilot) atau agen terminal (Claude Code, Antigravity). Ini lebih mudah karena agen dapat membaca file-file dari folder secara otomatis:
+### Metode 2: Menggunakan AI Agent Tools / IDE (Sangat Direkomendasikan)
+
+> **Rekomendasi:** Kami **sangat menyarankan** pendekatan ini jika AI Agent Anda mendukung fitur *Tool Use* (eksekusi alat mandiri berkapabilitas terminal/berkas). Agent seperti Claude Code, Antigravity, atau Cursor dapat mengambil alih keseluruhan orkestrasi pembuatannya. Mereka tidak bertele-tele mencetak kode di layar, layaknya obrolan biasa, namun dapat merubah *script* `.js` dan langsung menyerahkan *file output* `.docx` ke *workspace* Anda!
+
+Metode ini digunakan jika Anda bekerja menggunakan IDE atau agen terminal pintar. Ini jelas lebih mudah karena agen AI dapat membaca lingkungan *folder* secara otomatis:
 1. Pertama, pastikan Anda telah *clone* atau mengunduh repositori ini ke komputer Anda. Kemudian, buka folder proyek (`report-generator`) tersebut di dalam IDE Anda atau terminal yang sudah terpasang CLI agen AI.
 2. Panggil agen Anda dengan perintah (Command / *Chat Box*).
 3. Sematkan referensi terhadap berkas instruksi dan dokumen magangnya. Berikan *prompt* seperti contoh berikut ini:
    > "Tolong gunakan panduan di `@AGENT_LAPORAN_MBKM.md` untuk memproses dokumen magang saya. Ini referensi kode laporannya `@generate_laporan_mbkm.js`, serta data saya: `@logbook.txt` dan `@sk-magang.pdf`. Lakukan ekstraksi sesuai instruksi privasinya dan berikan blok `CONFIG` nya."
-4. Agent akan secara otonom membaca instruksi, menganalisis dokumen yang ditunjuk, kemudian langsung mencetak atau bahkan menawarkan untuk menyisipkan variabel `CONFIG` ke dalam kode sumber (`generate_laporan_mbkm.js`).
+4. Agent berkapabilitas *Tool Use* akan secara leluasa membaca instruksi, menata dokumen yang ditunjuk, kemudian otomatis mengganti kode `CONFIG` di skrip (`generate_laporan_mbkm.js`) lalu mengeksekusinya untuk menghasilkan berkas `.docx` instan tanpa perlu campur tangan *copy-paste* Anda!
 
 ---
 
